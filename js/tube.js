@@ -10,7 +10,7 @@ navSection.innerHTML = `
     <button class=" bg-slate-400 normal-case text-xl text-black p-2 font-medium">Short By view</button>
 </div>
 <div class="navbar-end pr-4">
-    <button class="btn bg-[#FF1F3D] border-none text-white">Blog</button>
+    <button onclick="location.href ='http://127.0.0.1:5500/blog.html'" class="btn bg-[#FF1F3D] border-none text-white">Blog</button>
 
 </div>
 
@@ -45,13 +45,15 @@ const handleLoadNews = async(categoryId)=>{
 
 const displayData = (takeData) => {
     // console.log(takeData)
+    const errorSection = document.getElementById('error-section');
+    errorSection.innerHTML =''
     videoContainer = document.getElementById('card-section');
     videoContainer.classList="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
     
     videoContainer.innerHTML= ''
-    if(takeData.length=== 0){
-        const errorSection = document.getElementById('error-section');
-        errorSection.innerHTML =''
+    if(takeData.length === 0){
+        
+       
         const showingError = document.createElement('div')
         showingError.classList=" flex justify-center mt-12"
         showingError.innerHTML = `
@@ -66,7 +68,7 @@ const displayData = (takeData) => {
         takeData.forEach(element => {
         
             const div = document.createElement('div')
-            div.classList = "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-center"
+            div.classList = "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  mx-auto  md:ml-20 lg:mx-auto"
     
             div.innerHTML = `
                 <div class="card  w-52 bg-base-100 ">
